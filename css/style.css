@@ -19,6 +19,9 @@ body {
     width: 100%;
     z-index: 99;
 }
+.mobile-sidebar {
+    display: none;
+}
 .menu-button {
     padding: 0;
     margin-right: 28px;
@@ -45,6 +48,7 @@ body {
     align-items: center;
     border-radius: 22px;    
     margin-left: 60px;
+    margin-right: 40px;
     max-width: 830px;
     width: 50%;
 }
@@ -103,7 +107,7 @@ body {
     top: 114px;
     overflow-y: auto;
     height: calc(100% - 114px);
-    width: 15%;
+    width: 200px;
     background-color: #fff;
 }
 .nav-title {
@@ -148,8 +152,9 @@ body {
     width: 100%;
     height: 400px;
     margin-top: 85px;
-    padding-left: 20%;
+    margin-left: 250px;
     padding-top: 30px;
+    padding-right: 70px;
 }
 .channel,
 .recommended,
@@ -180,14 +185,14 @@ body {
     font-size: 26px;
     line-height: 33px;    
 }
-.video-card {
+/* .video-card {
     max-width: 250px;
 }
 .recommended-slider .video-card {
     max-width: 540px;
-}
+} */
 .video-thumb {
-    width: 250px;
+    width: 100%px;
     height: 150px;
     border-radius: 14px;
     position: relative;
@@ -195,16 +200,16 @@ body {
 }
 
 .recommended-slider .video-thumb {
-    width: 540px;
+    width: 100%;
     height: 250px;
 }
 .thumbnail {
-    width: 250px;
+    width: 100%;
     height: 150px;
     object-fit: cover;    
 }
 .recommended-slider .thumbnail {
-    width: 540px;
+    width: 100%;
     height: 250px;
 }
 .video-duration {
@@ -281,4 +286,89 @@ body {
     top: 10px;
     right: 20%;
 }
-
+.mobile-search {
+    display: none;
+}
+@media (max-width: 860px) {
+    .icons {
+        display: none;        
+    }
+    .user {
+        margin-left: auto;
+    }
+}
+@media (max-width: 640px) {
+    .swiper-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .swiper-slide {
+        margin-bottom: 40px;
+    }
+    .video-thumb,
+    .recommended-slider .video-thumb {
+        height: 300px;
+    }
+    .channel-button,
+    .recommended-button,
+    .recommended-channel-button {
+        display: none;
+    }
+    .mobile-search {
+        display: block;
+        margin-left: auto;
+    }
+    .input-group {
+        position: fixed;
+        top: -100px;
+        left: 0;
+        opacity: 0;
+        width: 68%;
+        margin-left: 25px;
+        transition: top 0.2s;
+    }
+    .input-group.is-open {
+        opacity: 1;
+        top: 20px;
+    }
+    .user {
+        margin-left: 10px;
+    }
+    .menu-button {
+        display: none;        
+    }
+    .sidebar {
+        display: none;
+    }
+    .content {
+        margin-left: 32px;
+    }
+    .mobile-sidebar {
+        display: block;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+        z-index: 99;
+        width: 100%;
+    }
+    .mobile-sidebar .nav-link {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-text {
+        margin-left: 0;
+    }
+    .mobile-sidebar .nav-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding-top: 13px;
+        padding-bottom: 11px;
+        border-top: 1px solid #f1f1f1;
+        margin-bottom: 0;
+    }
+    .nav-item {
+        margin-bottom: 0;
+    }
+}

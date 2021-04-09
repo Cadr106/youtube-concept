@@ -1,20 +1,49 @@
-const swiper = new Swiper('.channel-slider', {
+const myChannelSlider = new Swiper('.channel-slider', {
    
     loop: true,  
-    slidesPerView: 6,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+        1900: {
+            slidesPerView: 6
+        },
+        1600: {
+            slidesPerView: 5
+        },
+        1300: {
+            slidesPerView: 4
+        },
+        1100: {
+            slidesPerView: 3
+        },
+        800: {
+            slidesPerView: 2
+        },
+    },
     // Navigation arrows
     navigation: {
       nextEl: '.channel-button-next',
       prevEl: '.channel-button-prev',
-    }
-
+    },
   });
 
 
-  const swiper1 = new Swiper('.recommended-slider', {
+  const recommendedSlider = new Swiper('.recommended-slider', {
    
     loop: true,  
-    slidesPerView: 3,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+        2000: {
+            slidesPerView: 3
+        },
+        1700: {
+            slidesPerView: 2
+        },
+        1450: {
+            slidesPerView: 2
+        }
+    },
     // Navigation arrows
     navigation: {
       nextEl: '.recommended-button-next',
@@ -24,10 +53,28 @@ const swiper = new Swiper('.channel-slider', {
   });
 
 
-  const swiper2 = new Swiper('.recommended-channel-slider', {
+  const recommendedChannelSlider = new Swiper('.recommended-channel-slider', {
    
     loop: true,  
-    slidesPerView: 6,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: {
+        1900: {
+            slidesPerView: 6
+        },
+        1600: {
+            slidesPerView: 5
+        },
+        1300: {
+            slidesPerView: 4
+        },
+        1100: {
+            slidesPerView: 3
+        },
+        800: {
+            slidesPerView: 2
+        },
+    },
     // Navigation arrows
     navigation: {
       nextEl: '.recommended-channel-button-next',
@@ -35,3 +82,14 @@ const swiper = new Swiper('.channel-slider', {
     }
 
   });
+
+  const searchBtn = document.querySelector('.mobile-search');
+  const mobileSearch = document.querySelector('.input-group');
+  searchBtn.addEventListener('click', () => {
+      mobileSearch.classList.toggle('is-open');
+  });
+  if (document.documentElement.scrollWidth <= 640) {
+      myChannelSlider.destroy();
+      recommendedSlider.destroy();
+      recommendedChannelSlider.destroy();
+  };
